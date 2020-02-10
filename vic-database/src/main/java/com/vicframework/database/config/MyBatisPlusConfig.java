@@ -1,10 +1,7 @@
 package com.vicframework.database.config;
 
-import com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor;
 import com.vicframework.database.common.VicMyBatisPlusProperties;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,9 +10,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 @Configuration
 //@MapperScan("com.hsbc.huatou.admin.dao")
-@Slf4j
 @AllArgsConstructor
-@NoArgsConstructor
 public class MyBatisPlusConfig {
 
     private VicMyBatisPlusProperties myBatisPlusProperties;
@@ -33,8 +28,6 @@ public class MyBatisPlusConfig {
 
     @Bean
     public MapperScannerConfigurer mapperScannerConfigurer(){
-        log.info("mapperScannerConfigurer");
-        log.info(myBatisPlusProperties.getMapperScanPath());
         MapperScannerConfigurer scannerConfigurer = new MapperScannerConfigurer();
         scannerConfigurer.setBasePackage(myBatisPlusProperties.getMapperScanPath());
         return scannerConfigurer;
